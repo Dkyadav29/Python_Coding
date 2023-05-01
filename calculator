@@ -1,0 +1,60 @@
+def add(x, y):
+    return x + y
+
+def subtract(x, y):
+    return x - y
+
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        raise ValueError("Cannot divide by zero.")
+    return x / y
+
+def get_input():
+    x = float(input("Enter first number: "))
+    y = float(input("Enter second number: "))
+    return (x, y)
+
+def display_menu():
+    print("Calculator Menu")
+    print("---------------")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+
+def get_operation():
+    op = int(input("Enter operation number: "))
+    return op
+
+while True:
+    display_menu()
+    op = get_operation()
+
+    if op == 1:
+        x, y = get_input()
+        result = add(x, y)
+        print(f"{x} + {y} = {result}")
+    elif op == 2:
+        x, y = get_input()
+        result = subtract(x, y)
+        print(f"{x} - {y} = {result}")
+    elif op == 3:
+        x, y = get_input()
+        result = multiply(x, y)
+        print(f"{x} * {y} = {result}")
+    elif op == 4:
+        x, y = get_input()
+        try:
+            result = divide(x, y)
+            print(f"{x} / {y} = {result}")
+        except ValueError as e:
+            print(e)
+    else:
+        print("Invalid operation.")
+    
+    again = input("Perform another calculation? (y/n): ")
+    if again.lower() == "n":
+        break
