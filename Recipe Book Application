@@ -1,0 +1,37 @@
+recipe_book = {}
+
+def add_recipe(name, ingredients):
+    recipe_book[name] = ingredients
+    print(f"Added {name} to recipe book.")
+
+def delete_recipe(name):
+    if name in recipe_book:
+        del recipe_book[name]
+        print(f"Deleted {name} from recipe book.")
+    else:
+        print(f"{name} not found in recipe book.")
+
+def display_recipe(name):
+    if name in recipe_book:
+        ingredients = recipe_book[name]
+        print(f"{name}:")
+        for ingredient, amount in ingredients.items():
+            print(f"{ingredient}: {amount}")
+    else:
+        print(f"{name} not found in recipe book.")
+
+def display_recipe_book():
+    print("Recipe Book:")
+    for name, ingredients in recipe_book.items():
+        print(f"{name}:")
+        for ingredient, amount in ingredients.items():
+            print(f"{ingredient}: {amount}")
+        print()
+
+# Test the functions
+add_recipe("Chocolate Cake", {"Flour": "2 cups", "Sugar": "2 cups", "Cocoa powder": "3/4 cup", "Baking powder": "2 tsp", "Baking soda": "2 tsp", "Salt": "1 tsp", "Eggs": "2", "Milk": "1 cup", "Vegetable oil": "1/2 cup", "Vanilla extract": "2 tsp"})
+add_recipe("Spaghetti Bolognese", {"Spaghetti": "400g", "Ground beef": "500g", "Tomatoes": "4", "Garlic": "4 cloves", "Onion": "1", "Olive oil": "2 tbsp", "Dried oregano": "1 tbsp", "Red pepper flakes": "1 tsp", "Salt": "1 tsp", "Pepper": "1/2 tsp"})
+display_recipe_book()
+display_recipe("Chocolate Cake")
+delete_recipe("Spaghetti Bolognese")
+display_recipe_book()
